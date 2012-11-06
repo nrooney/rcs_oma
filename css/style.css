@@ -1,0 +1,222 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, img {
+background: transparent;
+border: 0;
+margin: 0;
+padding: 0;
+vertical-align: baseline;
+}
+
+html,body{
+	width:100%;
+	background: #fff;
+	margin: 0px;
+	padding: 0px; 
+}
+
+body {
+	color: #373737;
+	font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	line-height: 1.625;
+}
+
+/* Heading */
+h1, h2, h3, h4, h5, h6 {clear: both;	font-weight: normal;}
+h1{font-size:24px}
+h2{font-size:22px}
+h3{font-size:20px}
+h4{font-size:18px}
+h5{font-size:16px}
+h6{font-size:14px}
+p.small{font-size:13px}
+div.error{font-weight: bold; color: red;}
+
+/* Links */
+a:hover, a:active,a:focus {border: 0; outline:0; text-decoration:none;}
+a{color:#000; text-decoration:none;}
+a:hover{color:#940000;}
+
+header {
+	width: 100%;
+	background: #ccc;
+}
+
+section#login{
+	width: 20%;
+	height: 100%;
+	position: absolute;
+	background: #113166;
+	opacity: 1;
+	z-index: 1;
+	color: #fff;
+}
+
+section#login.small{
+	width: 8%;
+}
+
+form#loginform label, form#loginform input {
+	display: block;
+	margin: 10px 0 0 10px;
+}
+
+form#loginform input#loginsubmit, form#logoutform input#logoutsubmit{
+	width: 90px;
+	font-size: 20px;
+	margin: 20px 10px;
+}
+
+form#logoutform {
+	display: none;
+}
+
+section#activeapp{
+	margin: 0 0 0 8%;
+	width: 92%;
+	height: 100%; /*not working!*/
+	background: #bbb;
+	float: left; /* check if better html5 way */
+	opacity: 0.5;
+}
+
+section#addressbook{
+	width: 50%;
+	height: 100%;
+	background: #1f4888;
+	color: #fff;
+	float: left;
+}
+
+section#addressbook h2{
+	padding: 5px 10px;
+}
+
+section#addressbook #addcontacts{
+	padding: 10px;
+}
+
+section#chat{
+	width: 50%;
+	height: 100%;
+	background: #bbb;
+	float: left;
+}
+
+div#acontact{
+	width: 100%;
+	background: #D1DFF1;
+}
+
+div#mynumber{
+	padding: 10px;
+	background: #4770b0;
+	color: #fff;
+}
+
+div#acontact .contactname{
+	cursor: pointer;
+	padding: 10px;
+	color: black;
+	border-top: 1px solid #778597;
+}
+
+div#acontact .msisdn{
+	display: none;
+	padding: 10px;
+	color: black;
+	font-size:13px;
+}
+
+div#acontact .greenarrow {
+	float:right;
+	cursor: pointer;
+	margin: 5px 5px 0 0;
+}
+
+div#acontact .deletecontact {
+padding: 0 20px 0 0;
+float: right;
+font-size: 10px;
+}
+
+section#chat h2{
+	padding: 5px 10px;
+	background: #295292;
+	color: #fff;
+}
+
+section#chat h3{
+	height: 35px;
+	padding: 5px 10px;
+	background: #5179BA;
+	color: #fff;
+}
+
+div#chatcontainer .chatbox {
+	display: none;
+}
+
+div#chatcontainer .chatbox .displaymessagearea{
+	background: #fff;
+	min-height: 300px;
+	border-bottom: 1px solid #778597;
+}
+
+div#chatcontainer .chatbox .typemessagearea{
+	background: #fff;
+	height: 150px;
+	border-bottom: 1px solid #778597;
+	padding: 10px;
+}
+
+div#chatcontainer .chatbox .typemessagearea .message{
+	width: 75%;
+	height: 100px;
+}
+
+div#chatcontainer .chatbox .typemessagearea .sendmessagebutton{
+float: right;
+width: 100px;
+font-size: 60px;
+}
+
+#errorbox {
+	border: 4px solid black;
+	left: 10px;
+	bottom: 10px;
+	position: absolute;
+	z-index: 2;
+	background: red;
+	width: 200px;
+	height: 110px;
+	padding: 10px;
+	display: none;
+}
+
+.amessage {
+	padding: 10px 10px 0 10px;
+}
+
+.amessage .status{
+	float: right;
+}
+
+.weatherMessage {
+	margin: 10px;
+}
+
+#weatherTable td{
+	width: 100px;
+}
+
+#weatherTable .label{
+	font-weight: bold;
+}
