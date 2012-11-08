@@ -33,15 +33,15 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
 	}
 	$sessionID = null;
 	if(isset($_POST['sessionID'])){  //do we need?!
-		$subID = $_POST['sessionID'];
+		$sessionID = $_POST['sessionID'];
 	}
 	$messageID = null;
 	if(isset($_POST['messageID'])){  //do we need?!
-		$subID = $_POST['messageID'];
+		$messageID = $_POST['messageID'];
 	}
 	$participantID = null;
 	if(isset($_POST['messageID'])){  //do we need?!
-		$subID = $_POST['messageID'];
+		$participantID = $_POST['messageID'];
 	}
 	$text = null;
 	if(isset($_POST['text'])){  //do we need?!
@@ -121,14 +121,11 @@ function createNewSub($username, $authuser, $authpw, $notifyURL){
 	global $SERVER_URL, $APIVERSION;
 	$usernameNoPlus = '%2B' . substr($username, 1);
 	$url = $SERVER_URL.'chat/'.$APIVERSION.'/'.$usernameNoPlus.'/subscriptions';
-	//echo $url . '<br/>';
-	//echo 'http://api.oneapi-gw.gsma.com/chat/0.1/%2B15554000002/subscriptions<br/>';
 	
 	$usernameNoPlus = substr($username, 1);
 	
 	$action = '{"chatNotificationSubscription":{ "callbackReference":{"notifyURL":"'.$notifyURL.'","callbackData":"'.$username.'"}}}';
-	//$action = '{"chatNotificationSubscription":{ "callbackReference":{"notifyURL":"http://api.oneapi-gw.gsma.com/cometoma/rcsbox-notifieroma/NotificationsCometHandler?username=%2B15554000099","callbackData":"+15554000099"},"duration":900}}';
-	
+
 	$request = new RestRequest($url, 'POST', $action, $authuser, $authpw);
 	$request->execute();
 	
@@ -220,21 +217,12 @@ function sendIM($username, $authuser, $authpw, $contactID, $sessionID, $text){
 	$contactIDNoPlus = 'tel%3A%2B' . substr($contactID, 1);
 	
 	$url = $SERVER_URL.'chat/'.$APIVERSION.'/'.$usernameNoPlus.'/oneToOne/'.$contactIDNoPlus.'/'.$sessionID.'/messages'; 
-	//sessionID returned from createChat
-	//echo $url . '<br/>';
-	//echo "http://api.oneapi-gw.gsma.com/chat/0.1/%2B15554000001/oneToOne/tel%3A%2B15554000002/adhoc/messages<br/>";
 	
 	$action = '{"ChatMessage":{"text":"'.$text.'","reportRequest":"Displayed"}}';
 	
 	$request = new RestRequest($url, 'POST', $action, $authuser, $authpw);
 	$request->execute();
-	
-	//echo $request->getResponseBody();
 	$requestAsArray = json_decode($request->getResponseBody());
-	//$requestAsArray = $requestAsArray->requestError->serviceException->variables;
-	//echo 'type: ' . gettype($requestAsArray);
-	//echo print_r($requestAsArray);
-	//echo $requestAsArray['0'];
 	
 	$info = $request->getResponseInfo();	
 	if($info['http_code'] == '201'){
@@ -243,12 +231,11 @@ function sendIM($username, $authuser, $authpw, $contactID, $sessionID, $text){
 		$messageID = explode("/", $messageID);
 		$messageID = $messageID[count($messageID)-2];
 		echo $messageID;
-		//echo $url . '<br/>';
 	}
 	else{
 		echo $info['http_code'] . ' Error - ';
 		//$requestAsArray = $requestAsArray->requestError->serviceException->variables;
-		//echo $requestAsArray['0'];
+		print_r($requestAsArray);
 	}	
 }
 
